@@ -1,19 +1,22 @@
 ﻿#include <iostream>
-#include <deque>
+#include <vector>
 
 using namespace std;
 
 int main()
 {
-	int myints[] = { 1, 2, 3 };
-	deque<int> d1(myints, myints + 3);
-	int newints[] = { 4,3,2 };
-	deque<int> d2(newints, newints + 3);
-	cout << d1.front() + d2.front() << " ";
-	for (int d : d1)
-	{
-		cout << d + d2.back() << " ";
-		d2.pop_back();
-	}
+	int t[] = {5, 4, 3, 1, 2};
+	vector<int> v1(t, t + 5);
+	int t2[] = {1, 2, 3, 4, 5};
+	vector<int> v2(t2, t2 + 5);
+	vector<int> sums(v1.size());
+	int x;
+	cin >> x;
+	for (unsigned i = 0; i < v1.size(); ++i)
+		sums[i] = x + v1[i] + v2[i];
+	cout << "sums: ";
+	for (int sum :sums)
+		cout << sum << " ";
+	cout << endl;
 	return 0;
 }
