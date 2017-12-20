@@ -1,41 +1,22 @@
-#include "iostream"
+#include <iostream> 
+#include <fstream> 
+#include <set> 
+#include <functional>
 
 using namespace std;
-const int DivideByZero = 111;
 
-float internaldiv(float arg1, float arg2)
+int main()
 {
-	return arg1 / arg2;
-}
+	set <double, greater<double>> valuesA = { -1.1, 2.9, -2.3, 3.7 };
+	set <double, greater<double>> valuesB = { -3.14, 2.71, -3.88, 2.19 };
 
-float div(float arg1, float arg2)
-{
-	if (arg2 == 0.0)
-		throw DivideByZero;
+	valuesA.swap(valuesB);
 
-	return internaldiv(arg1, arg2);;
-}
+	for (auto value : valuesA)
+		cout << value << " ";
+	cout << endl;
 
-int main(void)
-{
-	float a, b;
-
-	while (cin >> a)
-	{
-		cin >> b;
-
-		try
-		{
-			cout << div(a, b) << endl;
-		}
-		catch (int code)
-		{
-			cout << "Error" << endl;
-			if (code == 111)
-			{
-				cout << "Your input is not valid. You can't divide by zero." << endl;
-			}
-		}
-	}
-	return 0;
+	for (auto value : valuesB)
+		cout << value << " ";
+	cout << endl;
 }
